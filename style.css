@@ -34,6 +34,9 @@
   --btn-padding: 0.6rem 2rem;
   --search-padding: 0.6rem 1rem;
   --card-padding: 1rem;
+
+  --stick-top-left: 5.4rem;
+  --stick-top-left: -18rem;
 }
 
 /* General Style */
@@ -74,7 +77,7 @@ img {
 
 .btn:hover {
   opacity: 0.85;
-  transform: scale(.95);
+  transform: scale(0.95);
 }
 
 .btn-primary {
@@ -88,6 +91,11 @@ img {
 
 .text-muted {
   color: var(--color-gray);
+}
+
+input:focus,
+input:active {
+  outline: none !important;
 }
 
 /****************************** Navbar Style ******************************/
@@ -116,7 +124,7 @@ nav .search-bar {
 
 nav .search-bar input[type="search"] {
   background: transparent;
-  widht: 30vw;
+  width: 30vw;
   border: none;
   margin-left: 1rem;
   font-size: 0.9rem;
@@ -131,4 +139,146 @@ nav .create {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+/****************************** Main Style ******************************/
+main {
+  direction: rtl !important;
+  position: relative;
+  top: 6rem;
+}
+
+main .container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18vw auto 12vw;
+  column-gap: 2rem;
+}
+
+main .container .right {
+  height: max-content;
+  position: sticky;
+  top: var(--stick-top-left);
+}
+
+main .container .right .profile {
+  padding: var(--card-padding);
+  background: var(--color-white);
+  border-radius: var(--card-border-raduis);
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  /* width: 100%; */
+}
+
+/* SideBar Style */
+.right .sidebar {
+  margin-top: 1rem;
+  background: var(--color-white);
+  border-radius: var(--card-border-raduis);
+}
+
+.right .sidebar .menu-item {
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 300ms ease;
+}
+.right .sidebar .menu-item:hover {
+  background: var(--color-light);
+}
+
+.right .sidebar i {
+  font-size: 1.4rem;
+  color: var(--color-gray);
+  margin-right: 2rem;
+  position: relative;
+}
+
+.right .sidebar i .notification-count {
+  background: var(--color-danger);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  width: fit-content;
+  border-radius: 0.8rem;
+  padding: 0.3rem 0.5rem;
+  position: absolute;
+  top: -0.8rem;
+  right: -0.4rem;
+}
+
+.right .sidebar h3 {
+  margin-right: 1.5rem;
+  font-size: 1rem;
+}
+
+.right .sidebar .active {
+  background: var(--color-light);
+}
+
+.right .sidebar .active i,
+.right .sidebar .active h3 {
+  color: var(--color-primary);
+}
+
+.right .sidebar .active::before {
+  content: "";
+  display: block;
+  width: 0.3rem;
+  height: 100%;
+  position: absolute;
+  background: var(--color-primary);
+}
+
+.right .sidebar .menu-item:first-child.active {
+  border-top-right-radius: var(--card-border-raduis);
+  overflow: hidden;
+}
+.right .sidebar .menu-item:last-child.active {
+  border-bottom-right-radius: var(--card-border-raduis);
+  overflow: hidden;
+}
+
+.right .btn {
+  margin-top: 1rem;
+  text-align: center;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+/* notifications-popup */
+.right .notifications-popup {
+  position: absolute;
+  top: 0;
+  right: 110%;
+  width: 30rem;
+  background: var(--color-white);
+  border-radius: var(--card-border-raduis);
+  padding: var(--card-padding);
+  box-shadow: 0 0 2rem hsl(var(--color-primary), 75%, 65% 25%);
+  z-index: 8;
+  display: none;
+}
+
+.right .notifications-popup::before {
+  content: "";
+  width: 1.2rem;
+  height: 1.2rem;
+  position: absolute;
+  display: block;
+  background: var(--color-white);
+  right: -0.6rem;
+  transform: rotate(45deg);
+}
+
+.right .notifications-popup > div {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.right .notifications-popup small {
+  display: block;
 }
