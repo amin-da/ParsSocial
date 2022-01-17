@@ -158,7 +158,7 @@ main .container {
 main .container .right {
   height: max-content;
   position: sticky;
-  top: var(--stick-top-left);
+  top: 6.5rem;
 }
 
 main .container .right .profile {
@@ -176,6 +176,7 @@ main .container .right .profile {
   margin-top: 1rem;
   background: var(--color-white);
   border-radius: var(--card-border-raduis);
+  
 }
 
 .right .sidebar .menu-item {
@@ -372,4 +373,76 @@ main .container .right .profile {
 
 .middle .create-post input[type="submit"] {
   border: none;
+}
+
+/* Feeds */
+
+.middle .feeds .feed {
+  background: var(--color-white);
+  border-radius: var(--card-border-raduis);
+  padding: var(--card-padding);
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.middle .feed .head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.middle .feed .head .ingo{
+  margin-bottom: 0.5rem;
+  line-height: 0.8;
+}
+
+.middle .feed .user {
+  display: flex;
+  gap: 0.5rem;
+}
+.middle .feed .profile-photo {
+  border-radius: var(--card-border-raduis);
+  overflow: hidden;
+  margin: 0.7rem 0;
+}
+
+.middle .feed .photo img {
+  border-radius: var(--card-border-raduis);
+  overflow: hidden;
+  margin: 0.7rem 0;
+  height: 25rem;
+  object-fit: cover;
+  
+}
+
+.middle .feed .action-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  margin: 0.6rem;
+}
+
+.middle .like-by {
+  display: flex;
+  align-items: center;
+}
+
+.middle .like-by span {
+  display: flex;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-white);
+  margin-right: -0.6rem;
+}
+
+.middle .like-by span:first-child{
+  margin: 0;
+}
+
+.middle .like-by p{
+  margin-right: 0.5rem;
 }
