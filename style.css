@@ -35,7 +35,7 @@
   --search-padding: 0.6rem 1rem;
   --card-padding: 1rem;
 
-  --stick-top-left: 5.4rem;
+  --stick-top-right: 6.5rem;
   --stick-top-left: -18rem;
 }
 
@@ -48,7 +48,7 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -103,11 +103,15 @@ input:active {
 nav {
   width: 100%;
   background: var(--color-white);
-  padding: 0.7rem 0;
+  padding: 0.6rem 0;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 10;
   direction: rtl;
+  height: 4.5rem;
+  border-bottom-right-radius:var(--card-border-raduis);
+  border-bottom-left-radius: var(--card-border-raduis);
 }
 
 nav .container {
@@ -116,13 +120,13 @@ nav .container {
   justify-content: space-between;
 }
 
-nav .search-bar {
+.search-bar {
   background: var(--color-light);
   border-radius: var(--border-raduis);
   padding: var(--search-padding);
 }
 
-nav .search-bar input[type="search"] {
+.search-bar input[type="search"] {
   background: transparent;
   width: 30vw;
   border: none;
@@ -131,7 +135,7 @@ nav .search-bar input[type="search"] {
   color: var(--color-dark);
 }
 
-nav .search-bar input[type="search"]::placeholder {
+.search-bar input[type="search"]::placeholder {
   color: var(--color-gray);
 }
 
@@ -151,14 +155,14 @@ main {
 main .container {
   position: relative;
   display: grid;
-  grid-template-columns: 18vw auto 12vw;
+  grid-template-columns: 18vw auto 16vw;
   column-gap: 2rem;
 }
 
 main .container .right {
   height: max-content;
   position: sticky;
-  top: 6.5rem;
+  top: var(--stick-top-right);
 }
 
 main .container .right .profile {
@@ -176,7 +180,6 @@ main .container .right .profile {
   margin-top: 1rem;
   background: var(--color-white);
   border-radius: var(--card-border-raduis);
-  
 }
 
 .right .sidebar .menu-item {
@@ -391,7 +394,7 @@ main .container .right .profile {
   justify-content: space-between;
 }
 
-.middle .feed .head .ingo{
+.middle .feed .head .ingo {
   margin-bottom: 0.5rem;
   line-height: 0.8;
 }
@@ -412,7 +415,6 @@ main .container .right .profile {
   margin: 0.7rem 0;
   height: 25rem;
   object-fit: cover;
-  
 }
 
 .middle .feed .action-buttons {
@@ -439,10 +441,140 @@ main .container .right .profile {
   margin-right: -0.6rem;
 }
 
-.middle .like-by span:first-child{
+.middle .like-by span:first-child {
   margin: 0;
 }
 
-.middle .like-by p{
+.middle .like-by p {
   margin-right: 0.5rem;
+}
+
+/********************** Left Section ********************/
+main .container .left {
+  height: max-content;
+  width: 100%;
+  position: sticky;
+  top: var(--stick-top-left);
+  bottom: 0;
+}
+
+.left .messages {
+  background: var(--color-white);
+  border-radius: var(--card-border-raduis);
+  padding: var(--card-padding);
+}
+
+.left .messages .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.left .messages i {
+  font-size: 1.2rem;
+}
+
+.left .messages .search-bar {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.left .messages .category {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.left .messages .category h6 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 3px solid var(--color-light);
+  padding-bottom: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.left .messages .category .active {
+  border-color: var(--color-dark);
+}
+
+.left .messages .category .message-requests{
+  color: var(--color-primary);
+}
+
+
+.left .messages .message {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.left .messages .message:last-child {
+  margin-bottom: 0;
+}
+
+.left .messages .message p {
+  font-size: 0.8rem;
+}
+
+.left .messages .message .message-body {
+  line-height: 0;
+}
+
+/* نمایان کردن دایره اکتیو برای یوزرها */
+.left .messages .message .profile-photo {
+  position: relative;
+  overflow: visible;
+}
+
+.left .messages .message .profile-photo img{
+  border-radius: 50%;
+}
+
+.left .messages .message .profile-photo .active {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  border: 3px solid var(--color-white);
+  background: var(--color-sucsess);
+}
+
+/* Ferind Request */
+
+.left .ferind-requests{
+  margin-top: 1rem;
+}
+
+.left .ferind-requests h4{
+  color: var(--color-gray);
+  margin: 1rem 0;
+}
+
+.left .request{
+  background: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-raduis);
+  margin-bottom: 0.7rem;
+}
+.left .request .info{
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  justify-content: flex-start;
+  line-height: 0;
+  align-items: center;
+}
+
+.left .request .action-btns{
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.left .request .action-btns .btn-decline{
+  background: var(--color-gray);
 }
