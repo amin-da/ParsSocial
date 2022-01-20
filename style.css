@@ -48,7 +48,7 @@ body {
 }
 
 .container {
-  width: 95%;
+  width: 85%;
   margin: 0 auto;
 }
 
@@ -110,7 +110,7 @@ nav {
   z-index: 10;
   direction: rtl;
   height: 4.5rem;
-  border-bottom-right-radius:var(--card-border-raduis);
+  border-bottom-right-radius: var(--card-border-raduis);
   border-bottom-left-radius: var(--card-border-raduis);
 }
 
@@ -498,10 +498,9 @@ main .container .left {
   border-color: var(--color-dark);
 }
 
-.left .messages .category .message-requests{
+.left .messages .category .message-requests {
   color: var(--color-primary);
 }
-
 
 .left .messages .message {
   display: flex;
@@ -528,7 +527,7 @@ main .container .left {
   overflow: visible;
 }
 
-.left .messages .message .profile-photo img{
+.left .messages .message .profile-photo img {
   border-radius: 50%;
 }
 
@@ -545,22 +544,22 @@ main .container .left {
 
 /* Ferind Request */
 
-.left .ferind-requests{
+.left .ferind-requests {
   margin-top: 1rem;
 }
 
-.left .ferind-requests h4{
+.left .ferind-requests h4 {
   color: var(--color-gray);
   margin: 1rem 0;
 }
 
-.left .request{
+.left .request {
   background: var(--color-white);
   padding: var(--card-padding);
   border-radius: var(--card-border-raduis);
   margin-bottom: 0.7rem;
 }
-.left .request .info{
+.left .request .info {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
@@ -569,12 +568,171 @@ main .container .left {
   align-items: center;
 }
 
-.left .request .action-btns{
+.left .request .action-btns {
   display: flex;
   gap: 0.5rem;
   justify-content: space-between;
 }
 
-.left .request .action-btns .btn-decline{
+.left .request .action-btns .btn-decline {
   background: var(--color-gray);
+}
+
+/******************* Theme Customization ********************/
+
+.customize-theme {
+  background: rgba(255, 255, 255, 0.4);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 110;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  display: none;
+}
+
+.customize-theme .card {
+  background: var(--color-white);
+  padding: 3rem;
+  border-radius: var(--card-border-raduis);
+  width: 50%;
+  border: 2px solid var(--color-gray);
+}
+
+/* Font size */
+
+.customize-theme .font-size {
+  margin-top: 4rem;
+}
+
+.customize-theme .font-size > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-light);
+  padding: var(--search-padding);
+  border-radius: var(--card-border-raduis);
+}
+
+.customize-theme .font-size .choose-size {
+  background: var(--color-secondary);
+  height: 0.3rem;
+  width: 100%;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customize-theme .font-size .choose-size span {
+  width: 1rem;
+  height: 1rem;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.customize-theme .font-size .choose-size span.active {
+  background: var(--color-primary);
+}
+
+/* Primary Color */
+
+.customize-theme .color {
+  margin-top: 2rem;
+}
+
+.customize-theme .color .choose-color {
+  background: var(--color-light);
+  padding: var(--search-padding);
+  border-radius: var(--card-border-raduis);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.customize-theme .color .choose-color span {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+}
+
+.customize-theme .color .choose-color span:nth-child(1) {
+  background: hsl(252, 75%, 60%);
+}
+
+.customize-theme .color .choose-color span:nth-child(2) {
+  background: hsl(52, 75%, 60%);
+}
+
+.customize-theme .color .choose-color span:nth-child(3) {
+  background: hsl(352, 75%, 60%);
+}
+
+.customize-theme .color .choose-color span:nth-child(4) {
+  background: hsl(152, 75%, 60%);
+}
+
+.customize-theme .color .choose-color span:nth-child(5) {
+  background: hsl(202, 75%, 60%);
+}
+
+.customize-theme .color .choose-color span.active {
+  border: 5px solid white;
+}
+
+/* Background Color */
+
+.customize-theme .background {
+  margin-top: 2rem;
+}
+
+.customize-theme .background .choose-bg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: rtl;
+  gap: 1rem;
+}
+
+.customize-theme .background .choose-bg > div {
+  padding: var(--card-padding);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.customize-theme .background .choose-bg > div.active{
+  border: 2px solid var(--color-primary);
+}
+
+
+.customize-theme .background .choose-bg .bg-1{
+  color: black;
+  background: white;
+}
+.customize-theme .background .choose-bg .bg-2{
+  color: white;
+  background: hsl(252,30%,17%);
+}
+.customize-theme .background .choose-bg .bg-3{
+  color: white;
+  background: hsl(252,30%,10%);
+}
+
+.customize-theme .background .choose-bg > div span{
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--color-gray);
+  border-radius: 50%;
+  margin-left: 1rem;
 }
