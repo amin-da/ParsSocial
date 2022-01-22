@@ -19,7 +19,7 @@
         </h2>
         <div class="search-bar">
           <input type="search" placeholder="جستجو کنید...." />
-          <i class="uil uil-search"></i>
+          <i class="uil uil-menu"></i>
         </div>
         <div class="create">
           <label class="btn btn-primary" for="create-post">ایجاد</label>
@@ -28,6 +28,8 @@
           </div>
         </div>
       </div>
+      <i class="uil uil-bars btn-sidebar-open" id="btn-sidebar-open"></i>
+
     </nav>
 
     <!-- Main section -->
@@ -46,7 +48,7 @@
           </a>
 
           <!-- Sidebar -->
-          <div class="sidebar">
+          <div class="sidebar" id="sidebar">
             <a class="menu-item active">
               <span><i class="uil uil-home"></i></span>
               <h3>خانه</h3>
@@ -138,6 +140,7 @@
               <span><i class="uil uil-setting"></i></span>
               <h3>تنظیمات</h3>
             </a>
+            <i class="uil uil-angle-double-left btn-sidebar-close" id="btn-sidebar-close"></i>
           </div>
 
           <label for="create-post" class="btn btn-primary">ایجاد پست</label>
@@ -640,5 +643,6 @@
 
       </div>
 
+      <script src="./index.js"></script>
   </body>
 </html>
