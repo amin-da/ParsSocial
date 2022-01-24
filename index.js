@@ -3,8 +3,11 @@ var btnSidebarClose = document.getElementById("btn-sidebar-close");
 var btnSidebarOpen = document.getElementById("btn-sidebar-open");
 var sidebar = document.getElementById("sidebar");
 
+// Messages
 var messageNotification = document.querySelector("#mesgges-notification");
-var messages = document.querySelector("#messages");
+var messages = document.querySelector(".messages");
+const message = messages.querySelectorAll(".message");
+const messageSearch = document.querySelector("#message-search");
 
 btnSidebarClose.addEventListener("click", () => {
   sidebar.classList.add("close-menu");
@@ -22,7 +25,7 @@ changeActiveClass = () => {
   menuItems.forEach(item => {
     if (item.classList.contains("active")) {
       item.classList.remove("active");
-    } else if (messages.getAttribute("style").includes("boxShadow") != null) {
+    } else if (messages.getAttribute("style") != null) {
       messages.style.boxShadow = "none";
     }
   });
@@ -46,6 +49,23 @@ menuItems.forEach(item => {
 
 // Functionality for Messages
 
+// search chat
+
+const searchMessage = params => {
+  const value = messageSearch.value.toLowerCase();
+
+  message.forEach(user => {
+    let name = user.querySelector("h5").textContent.toLowerCase();
+    if (name.indexOf(value) != -1) {
+      user.style.display = "flex";
+    } else {
+      user.style.display = "none";
+    }
+  });
+};
+messageSearch.addEventListener("keyup", searchMessage);
+
+//highlighte message card when message item is clikced
 messageNotification.addEventListener("click", () => {
   messages.style.boxShadow = "0 0 1rem var(--color-primary)";
   messageNotification.querySelector(".notification-count").style.display =
