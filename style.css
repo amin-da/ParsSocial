@@ -155,7 +155,7 @@ main {
 main .container {
   position: relative;
   display: grid;
-  grid-template-columns: 18vw auto 16vw;
+  grid-template-columns: 18vw auto 18vw;
   column-gap: 2rem;
 }
 
