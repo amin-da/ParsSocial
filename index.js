@@ -79,6 +79,8 @@ messageNotification.addEventListener("click", () => {
 // theme variable
 const theme = document.querySelector("#theme");
 const themeModal = document.querySelector(".customize-theme");
+const FontSizes = document.querySelectorAll(".choose-size span");
+const root = document.querySelector(":root");
 
 // Fuctionality
 
@@ -90,9 +92,52 @@ const openThemeModal = () => {
 theme.addEventListener("click", openThemeModal);
 
 // close modal
-const closehemeModal = e => {
+const closthemeModal = e => {
   if (e.target.classList.contains("customize-theme")) {
     themeModal.style.display = "none";
   }
 };
-themeModal.addEventListener("click", closehemeModal);
+themeModal.addEventListener("click", closthemeModal);
+
+// FontSize
+
+// remove active class from span or font size clicked
+const reomveSizeSelector = () => {
+  FontSizes.forEach(item => {
+    item.classList.remove("active");
+  });
+};
+
+// change fontSize
+FontSizes.forEach(item => {
+  item.addEventListener("click", () => {
+    //
+    let fontSize;
+    reomveSizeSelector();
+    item.classList.toggle("active");
+
+    if (item.classList.contains("font-size-1")) {
+      fontSize = "10px";
+      root.style.setProperty("----stick-top-right", "6.4rem");
+      root.style.setProperty("----stick-top-left", "6.4");
+    } else if (item.classList.contains("font-size-2")) {
+      fontSize = "13px";
+      root.style.setProperty("----stick-top-right", "6.4rem");
+      root.style.setProperty("----stick-top-left", "-7rem");
+    } else if (item.classList.contains("font-size-3")) {
+      fontSize = "16px";
+      root.style.setProperty("----stick-top-right", "-2rem");
+      root.style.setProperty("----stick-top-left", "-17rem");
+    } else if (item.classList.contains("font-size-4")) {
+      fontSize = "19px";
+      root.style.setProperty("----stick-top-right", "-5rem");
+      root.style.setProperty("----stick-top-left", "-25rem");
+    } else if (item.classList.contains("font-size-5")) {
+      fontSize = "22px";
+      root.style.setProperty("----stick-top-right", "-12rem");
+      root.style.setProperty("----stick-top-left ", "-35rem");
+    }
+    //change the fontSize of root html element
+    document.querySelector("html").style.fontSize = fontSize;
+  });
+});
