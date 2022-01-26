@@ -3,12 +3,6 @@ var btnSidebarClose = document.getElementById("btn-sidebar-close");
 var btnSidebarOpen = document.getElementById("btn-sidebar-open");
 var sidebar = document.getElementById("sidebar");
 
-// Messages
-var messageNotification = document.querySelector("#mesgges-notification");
-var messages = document.querySelector(".messages");
-const message = messages.querySelectorAll(".message");
-const messageSearch = document.querySelector("#message-search");
-
 btnSidebarClose.addEventListener("click", () => {
   sidebar.classList.add("close-menu");
 });
@@ -47,10 +41,16 @@ menuItems.forEach(item => {
   });
 });
 
+// ********************************************************************************
 // Functionality for Messages
 
-// search chat
+// Messages varibale
+var messageNotification = document.querySelector("#mesgges-notification");
+var messages = document.querySelector(".messages");
+const message = messages.querySelectorAll(".message");
+const messageSearch = document.querySelector("#message-search");
 
+// search chat
 const searchMessage = params => {
   const value = messageSearch.value.toLowerCase();
 
@@ -72,3 +72,27 @@ messageNotification.addEventListener("click", () => {
     "none";
   // setTimeout(() => {}, 2000);
 });
+
+// *****************************************************************
+// Theme Coustomazition
+
+// theme variable
+const theme = document.querySelector("#theme");
+const themeModal = document.querySelector(".customize-theme");
+
+// Fuctionality
+
+//open modal
+const openThemeModal = () => {
+  themeModal.style.display = "grid";
+  console.log("modal clicked");
+};
+theme.addEventListener("click", openThemeModal);
+
+// close modal
+const closehemeModal = e => {
+  if (e.target.classList.contains("customize-theme")) {
+    themeModal.style.display = "none";
+  }
+};
+themeModal.addEventListener("click", closehemeModal);
