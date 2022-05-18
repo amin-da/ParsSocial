@@ -19,14 +19,19 @@
 
 /* Css Varibels */
 :root {
-  --color-white: hsl(252, 30%, 100%);
-  --color-light: hsl(252, 30%, 95%);
-  --color-gray: hsl(252, 15%, 65%);
-  --color-primary: hsl(252, 75%, 60%);
+  --primary-color-hue:252;
+  --dark-color-lightness:17%;
+  --light-color-lightness:95%;
+  --white-color-lightness:100%;
+
+  --color-white: hsl(252, 30%, var(--white-color-lightness));
+  --color-light: hsl(252, 30%, var( --light-color-lightness));
+  --color-gray: hsl(var(--primary-color-hue), 15%, 65%);
+  --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
   --color-secondary: hsl(252, 100%, 90%);
   --color-sucsess: hsl(120, 95%, 65%);
   --color-danger: hsl(0, 95%, 65%);
-  --color-dark: hsl(252, 30%, 17%);
+  --color-dark: hsl(252, 30%, var( --dark-color-lightness));
   --color-balck: hsl(252, 30%, 10%);
 
   --border-raduis: 2rem;
@@ -36,7 +41,7 @@
   --card-padding: 1rem;
 
   --stick-top-right: 6.5rem;
-  --stick-top-left: -18rem;
+  --stick-top-left: 6.5rem;
 }
 
 /* General Style */
@@ -356,7 +361,7 @@ main .container .right .profile {
 
 /* create post */
 .middle .create-post {
-  width: 100%;
+  width: 93%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -376,6 +381,7 @@ main .container .right .profile {
 
 .middle .create-post input[type="submit"] {
   border: none;
+  margin-left: 0;
 }
 
 /* Feeds */
@@ -660,6 +666,7 @@ main .container .left {
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .customize-theme .color .choose-color span:nth-child(1) {
@@ -683,7 +690,9 @@ main .container .left {
 }
 
 .customize-theme .color .choose-color span.active {
-  border: 5px solid white;
+  /* border: 5px solid white; */
+  transform: scale(.85);
+  transition: all .15s ease-in;
 }
 
 /* Background Color */
@@ -810,10 +819,10 @@ main .container .left {
     grid-column: 1/3;
   }
   main .container .middle .create-post {
-    padding: 0 1rem;
+    padding: 0 ;
   }
   main .container .middle .create-post input[type="submit"] {
-    margin-left: 1rem;
+    margin-left: 0rem;
   }
   main .container .left {
     display: none;

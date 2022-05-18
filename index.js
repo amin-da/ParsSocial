@@ -76,14 +76,12 @@ messageNotification.addEventListener("click", () => {
 // *****************************************************************
 // Theme Coustomazition
 
-// theme variable
+// **** Modal ****
+// variable
 const theme = document.querySelector("#theme");
 const themeModal = document.querySelector(".customize-theme");
-const FontSizes = document.querySelectorAll(".choose-size span");
-const root = document.querySelector(":root");
 
 // Fuctionality
-
 //open modal
 const openThemeModal = () => {
   themeModal.style.display = "grid";
@@ -99,9 +97,12 @@ const closthemeModal = e => {
 };
 themeModal.addEventListener("click", closthemeModal);
 
-// FontSize
+// **** FontSize *****
+// variable
+const FontSizes = document.querySelectorAll(".choose-size span");
+const root = document.querySelector(":root");
 
-// remove active class from span or font size clicked
+// remove active class from span when other span clicked
 const reomveSizeSelector = () => {
   FontSizes.forEach(item => {
     item.classList.remove("active");
@@ -140,4 +141,94 @@ FontSizes.forEach(item => {
     //change the fontSize of root html element
     document.querySelector("html").style.fontSize = fontSize;
   });
+});
+
+// **** Change primary color ****
+// variable
+const colorPalete = document.querySelectorAll(".choose-color span");
+// remove active class from span when other span clicked
+const reomveActiveClass = () => {
+  colorPalete.forEach(item => {
+    item.classList.remove("active");
+  });
+};
+//Fuctioanility
+colorPalete.forEach(item => {
+  let primaryHue;
+  item.addEventListener("click", () => {
+    reomveActiveClass();
+    if (item.classList.contains("color-1")) {
+      primaryHue = 252;
+    } else if (item.classList.contains("color-2")) {
+      primaryHue = 52;
+    } else if (item.classList.contains("color-3")) {
+      primaryHue = 352;
+    } else if (item.classList.contains("color-4")) {
+      primaryHue = 152;
+    } else if (item.classList.contains("color-5")) {
+      primaryHue = 202;
+    }
+    item.classList.add("active");
+    root.style.setProperty("--primary-color-hue", primaryHue);
+  });
+});
+
+// **** theme ****
+
+// variable
+const Bg1 = document.querySelector(".bg-1");
+const Bg2 = document.querySelector(".bg-2");
+const Bg3 = document.querySelector(".bg-3");
+
+// Background value - name similar to CSS variable names
+let lightColorLightness;
+let whiteColorLightness;
+let darkColorLightness;
+
+// Functionality
+
+const changeBg = () => {
+  root.style.setProperty("--white-color-lightness", whiteColorLightness);
+  root.style.setProperty("--light-color-lightness", lightColorLightness);
+  root.style.setProperty("--dark-color-lightness", darkColorLightness);
+};
+
+Bg1.addEventListener("click", () => {
+  darkColorLightness = "17%";
+  whiteColorLightness = "100%";
+  lightColorLightness = "95%";
+  // add active class
+  Bg1.classList.add("active");
+  //  remoe active class from others
+  Bg2.classList.remove("active");
+  Bg3.classList.remove("active");
+  // remove cistomized changed
+  // window.location.reload();
+  changeBg();
+});
+
+Bg2.addEventListener("click", () => {
+  darkColorLightness = "95%";
+  whiteColorLightness = "20%";
+  lightColorLightness = "15%";
+
+  // add active class
+  Bg2.classList.add("active");
+  //  remoe active class from others
+  Bg1.classList.remove("active");
+  Bg3.classList.remove("active");
+  changeBg();
+});
+
+Bg3.addEventListener("click", () => {
+  darkColorLightness = "95%";
+  whiteColorLightness = "10%";
+  lightColorLightness = "0%";
+
+  // add active class
+  Bg3.classList.add("active");
+  //  remoe active class from others
+  Bg2.classList.remove("active");
+  Bg1.classList.remove("active");
+  changeBg();
 });
